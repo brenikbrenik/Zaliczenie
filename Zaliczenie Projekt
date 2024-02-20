@@ -1,0 +1,46 @@
+Random random = new Random();
+bool gra = true;
+int Min = 1;
+int Max = 15;
+int próba;
+int próby;
+int numer;
+string odpowiedź;
+
+while (gra == true)
+{
+    odpowiedź = "";
+    próba = 0;
+    próby = 0;
+    numer = random.Next(Min, Max);
+
+    while((próba != numer) && (próby < 5))
+    {
+        Console.WriteLine("Zgadnij liczbę od" + Min + " do " + Max + ":");
+        próba = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine(próba);
+
+            if (próba > numer)
+            {
+                Console.WriteLine("Za dużo!");
+            }
+            else if (próba < numer)
+            {
+                Console.WriteLine("Za mało...");
+            }
+        próby++;
+    }
+    Console.WriteLine("Wygrana! Liczba to: " + numer);
+    Console.WriteLine("Podjęte próby: " + próby);
+    Console.WriteLine("Czy chcesz zagrać ponownie? Wpisz tak lub nie");
+    odpowiedź = Console.ReadLine();
+
+    if (odpowiedź == "tak")
+    {
+        gra = true;
+    }
+    else
+    {
+        gra = false;
+    }
+}
